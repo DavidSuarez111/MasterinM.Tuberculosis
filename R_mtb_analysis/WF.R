@@ -1170,20 +1170,20 @@ ggplot(resBCyBLv, aes(x=log2FoldChange, y=-log10(pvalue), color = significancepv
   scale_color_manual(values = c("Yes" = "red", "No"= "black")) +  # Red for significant, black for non-significant
   theme_minimal() +
   geom_hline(yintercept = -log10(0.05), linetype = "dashed", color = "red")+
-  geom_vline(xintercept = c( -0.807, -1.807, -2.807, -3.807, -4.807), linetype = "dashed", color = "blue")+ #1.193, 0.193,
-  annotate("text", x = -2.807, y = 1.5, 
-           label = "0", color = "blue", hjust = 1, angle = 0)+
-  annotate("text", x = -3.807, y = 1.5, 
-           label = "-1", color = "blue", hjust = 1, angle = 0)+
-  
-  annotate("text", x = -4.807, y = 1.5, 
-           label = "-2", color = "blue", hjust = 1, angle = 0)+
-  
-  annotate("text", x = -1.807, y = 1.5, 
-           label = "1", color = "blue", hjust = 1, angle = 0)+
-  
-  annotate("text", x = -0.807, y = 1.5, 
-           label = "2", color = "blue", hjust = 1, angle = 0)+
+ # geom_vline(xintercept = c( -0.807, -1.807, -2.807, -3.807, -4.807), linetype = "dashed", color = "blue")+ #1.193, 0.193,
+ # annotate("text", x = -2.807, y = 1.5, 
+ #          label = "0", color = "blue", hjust = 1, angle = 0)+
+ # annotate("text", x = -3.807, y = 1.5, 
+ #          label = "-1", color = "blue", hjust = 1, angle = 0)+
+ # 
+ # annotate("text", x = -4.807, y = 1.5, 
+ #          label = "-2", color = "blue", hjust = 1, angle = 0)+
+ # 
+ # annotate("text", x = -1.807, y = 1.5, 
+ #          label = "1", color = "blue", hjust = 1, angle = 0)+
+ # 
+ # annotate("text", x = -0.807, y = 1.5, 
+ #          label = "2", color = "blue", hjust = 1, angle = 0)+
   
   labs(title="Expresión diferencial BL323 vs BC391", x="Log2 Fold Change", y="-Log10 P-value", subtitle = "Gráfico de Volcán") +
   theme(legend.position="") #right

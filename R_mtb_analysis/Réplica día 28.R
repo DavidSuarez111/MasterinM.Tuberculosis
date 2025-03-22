@@ -32,9 +32,9 @@ BCGFF <- "C:/Users/david/1.Archivos-Directorios/1. Maestría/0Tesis Maestría/1.
 #BLGFF <- "C:/Users/david/Archivos-Directorios/1. Maestría/0Tesis Maestría/1. AT en R/1. Datos limpios fastq/Genomas referencia/PANDO BL 323/BL 323.gff3"
 
 rutaaarchivosBC391D14 <- "C:/Users/david/1.Archivos-Directorios/1. Maestría/0Tesis Maestría/1. AT en R/1. Datos limpios fastq/BC d14"
-rutaaarchivosBC391D28 <- "C:/Users/david/1.Archivos-Directorios/1. Maestría/0Tesis Maestría/1. AT en R/1. Datos limpios fastq/BCd28"
+rutaaarchivosBC391D28 <- "C:/Users/david/1.Archivos-Directorios/1. Maestría/0Tesis Maestría/1. AT en R/1. Datos limpios fastq/BC d28"
 rutaaarchivosBL323D14 <- "C:/Users/david/1.Archivos-Directorios/1. Maestría/0Tesis Maestría/1. AT en R/1. Datos limpios fastq/BL d14"
-rutaaarchivosBL323D28 <- "C:/Users/david/1.Archivos-Directorios/1. Maestría/0Tesis Maestría/1. AT en R/1. Datos limpios fastq/BLd28"
+rutaaarchivosBL323D28 <- "C:/Users/david/1.Archivos-Directorios/1. Maestría/0Tesis Maestría/1. AT en R/1. Datos limpios fastq/BL d28"
 
 rutaoutputBAMBCD14 <- "C:/Users/david/1.Archivos-Directorios/1. Maestría/0Tesis Maestría/1. AT en R/1. Datos limpios fastq/Alineamientos BAM/BCD14 BAM"
 rutaoutputBAMBCD28 <- "C:/Users/david/1.Archivos-Directorios/1. Maestría/0Tesis Maestría/1. AT en R/1. Datos limpios fastq/Alineamientos BAM/BCD28 BAM"
@@ -902,6 +902,7 @@ ggplot(resBCD28yBLD28v, aes(x=log2FoldChange, y=pvalue, color = significancepval
   labs(title="Expresión diferencial BL323 vs BC391 al día 28", x="Log2 Fold Change", y="P-value", subtitle = "Conversión -log2(2.18) = -1.124 = 0") +
   theme(legend.position="") #right
 
+
 ggplot(resBCD28yBLD28v, aes(x=log2FoldChange, y=-log10(pvalue), color = significancepval)) + #y=-log10(pvalue)
   geom_point(alpha=0.5, size=2) +
   geom_text(data=top_genesBLD28, aes(label=row.names(top_genesBLD28)), vjust=1, hjust=1, size=3) +
@@ -909,13 +910,13 @@ ggplot(resBCD28yBLD28v, aes(x=log2FoldChange, y=-log10(pvalue), color = signific
   scale_color_manual(values = c("Yes" = "red", "No"= "black")) +  # Red for significant, black for non-significant
   theme_minimal() +
   geom_hline(yintercept = -log10(0.05), linetype = "dashed", color = "red")+
-  geom_vline(xintercept = c(-0.124, -1.124, -2.124), linetype = "dashed", color = "blue")+
-  annotate("text", x = -0.124, y = max(resBCD28yBLD28v$pvalue, na.rm = TRUE), 
-           label = "1", color = "blue", hjust = 1, angle = 0)+
-  annotate("text", x = -1.124, y = max(resBCD28yBLD28v$pvalue, na.rm = TRUE), 
-           label = "0", color = "blue", hjust = 1, angle = 0)+
-  annotate("text", x = -2.124, y = max(resBCD28yBLD28v$pvalue, na.rm = TRUE), 
-           label = "-1", color = "blue", hjust = 1, angle = 0)+
+ # geom_vline(xintercept = c(-0.124, -1.124, -2.124), linetype = "dashed", color = "blue")+
+ # annotate("text", x = -0.124, y = max(resBCD28yBLD28v$pvalue, na.rm = TRUE), 
+ #          label = "1", color = "blue", hjust = 1, angle = 0)+
+ # annotate("text", x = -1.124, y = max(resBCD28yBLD28v$pvalue, na.rm = TRUE), 
+ #          label = "0", color = "blue", hjust = 1, angle = 0)+
+ # annotate("text", x = -2.124, y = max(resBCD28yBLD28v$pvalue, na.rm = TRUE), 
+ #          label = "-1", color = "blue", hjust = 1, angle = 0)+
   labs(title="Expresión diferencial BL323 vs BC391 al día 28", x="Log2 Fold Change", y="-Log10 P-value", subtitle = "Gráfico de Volcán") +
   theme(legend.position="") #right 
 
